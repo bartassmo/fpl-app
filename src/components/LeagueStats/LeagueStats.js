@@ -38,7 +38,16 @@ const LeagueStats = () => {
       {loading ? (
         <div>Czekam na dane ligi...</div>
       ) : leagueData ? (
-        <div>Zaraz zobaczysz dane ligi</div>
+        <div>
+          <h3>Wyniki Ligi Klasycznej</h3>
+          {leagueData.standings.results.map((result, index) => (
+            <div key={index}>
+              <p>Miejsce: {result.rank}</p>
+              <p>Manager: {result.entry_name}</p>
+              <p>Punkty: {result.total}</p>
+            </div>
+          ))}
+        </div>
       ) : null}
     </div>
   );
